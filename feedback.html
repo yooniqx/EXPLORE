@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="feedbackstyle.css">
+    <title>
+        Feedback
+    </title>
+    <script type="text/javascript">
+        function feedbackcomplete() 
+        {
+            alert("Your feedback is submitted")
+        }
+    </script>
+</head>
+<div class="hero">
+ 
+    <video autoplay loop muted plays-inline class="bg-video">
+        <source src="feedbackvideo.mp4" type="video/mp4">
+    </video>
+    <nav>
+
+        <ul class="whole">
+            
+            <li><a href="homepage1.html">Home</a></li>
+            <li><a href="tplaces.html">Popular Places</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+    <div>
+    <body text="white" alink="yellow" vlink="yellow">
+    <script type="text/javascript">
+        var form = document.getElementById("form")
+        form.addEventListener("submit", function(event){
+            event.preventDefault
+
+            var firstname = document.getElementById("firstname").value
+            var lastname = document.getElementById("lastname").value
+            var email = document.getElementById("email").value
+            var select = document.getElementById("select").value
+            var message = document.getElementById("message").value
+            console.log("firstname")
+            console.log("lastname")
+            console.log("email")
+            console.log("select")
+            console.log("message")
+        })
+    </script>
+    <fieldset class="field">
+        <legend>
+            Your Review:
+        </legend>
+        <i>
+        <form method="post" class="form" id="form">
+        <label for="firstname">Full Name: </label>
+        <input type="text" id="firstname"  name="firstname" size="20" placeholder=" enter firstname" required>
+        <input type="text" id="lastname"  name="lastname" size="30" placeholder=" enter lastname" required>
+        <br><br>
+        <label for="email">Email: </label>
+        <input type="text" id="email"  name="email" size="50" placeholder=" enter email" required>
+        <br><br>
+        <label for="rate">Rate: </label>
+        <SELECT id="select" required>
+            <OPTION>⭐⭐⭐⭐⭐</OPTION>
+            <OPTION>⭐⭐⭐⭐</OPTION>
+            <OPTION>⭐⭐⭐</OPTION>
+            <OPTION>⭐⭐</OPTION>
+            <OPTION>⭐</OPTION>
+        </SELECT>
+        <br><br>
+        <label for="message">Tell us more:</label>
+        <br>
+        <textarea id="message"  name="message" rows="9" cols="150" placeholder="give your views" required></textarea>
+        <br><br>
+        <p align="center">
+            <button type="submit" class="submit" value="submit" onClick="feedbackcomplete()" id="submit">Submit</button>
+        </p>
+        </form>
+        </i>
+    </fieldset>
+    </div> 
+</div>
+</body>
+</html>  
