@@ -1,0 +1,120 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+body{
+    margin: 0 auto;
+}
+
+
+.hero{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(87, 23, 3, 0.705),rgba(12,3,51,0.3));
+    position: relative;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whole li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 80px;
+    text-align: center;
+    align-content: center;
+    block-size: 20px;
+}
+.whole li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration:solid;
+    text-shadow: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+nav{
+    background-color: rgb(rgb(133, 49, 49), green, blue);
+    width: 100%;
+    border: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bg-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 120%;
+    z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9){
+    .bg-video{
+        width: 100%;
+        height: auto;
+    }
+}
+
+div::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+.form{
+        background-color:transparent;
+        background-blend-mode: overlay;
+        opacity: 80%;
+        margin: 30px;
+        text-shadow: 20px;
+        margin-bottom: 0px;
+        margin-top: 30px;
+        font-size: 30px;
+        border-radius: 10px;
+        height: 10cm;
+}
+
+.submit{
+    display: inline-block;
+    justify-items: center;
+    background-color: rgba(77, 23, 6, 0.993);
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 21px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    transition: 1s;
+}
+.submit:hover{
+    transform: scale(0.9);
+    background-color: rgba(43, 12, 3, 0.993);
+}
+
+.field{
+    width: 850;
+    height: 14cm;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    color: rgb(230, 229, 228);
+    font-weight: 100;
+    text-align: justify;
+    margin-top: 40px;
+}

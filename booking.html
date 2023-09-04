@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="bookingstyle.css">
+    <title>
+        Booking
+    </title>
+    <script type="text/javascript">
+        function confirming()
+        {
+            confirm("Do you want to submit the form?")
+        }
+    </script>
+</head>
+<body>
+    <div class="hero">
+ 
+        <video autoplay loop muted plays-inline class="bg-video">
+            <source src="bookingvideo.mp4" type="video/mp4">
+        </video>
+        <nav>
+
+            <ul class="whole">
+                
+                <li><a href="homepage1.html">Home</a></li>
+                <li><a href="tplaces.html">Popular Places</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+        <p align="left" class="total">
+            <br><br>
+            <img src="bookingpic.jpg" class="img">
+            <p align="right">
+                <fieldset class="book">
+                    <legend>
+                        <b>Booking Form:</b>
+                    </legend>
+                        <form class="form">
+                            <br>
+                            <i>Where To:</i>
+                            <input type="text" placeholder="place name" required>
+                            <br><br>
+                            <i>How Many:</i>
+                            <input type="number" placeholder="Number of Guests" required>
+                            <br><br>
+                            <i>Arrival:</i>
+                            <input type="date" required>
+                            <br><br>
+                            <i>Leaving:</i>
+                            <input type="date" required>
+                            <br><br>
+                            <i>Name:</i>
+                            <input type="text" placeholder="your name" required>
+                            <br><br>
+                            <i>Ph Number:</i>
+                            <SELECT>
+                                <OPTION>+91</OPTION>
+                                <OPTION>+1</OPTION>
+                                <OPTION>+7</OPTION>
+                                <OPTION>+55</OPTION>
+                                <OPTION>+62</OPTION>
+                                <OPTION>+81</OPTION>
+                                <OPTION>+86</OPTION>
+                                <OPTION>+92</OPTION>
+                                <OPTION>+94</OPTION>
+                                <OPTION>+95</OPTION>
+                                <OPTION>+98</OPTION>
+                                <OPTION>+880</OPTION>
+                                <OPTION>+975</OPTION>
+                                <OPTION>+977</OPTION>
+                                </SELECT>
+                            <input type="phone" placeholder="your ph number" required>
+                            <br><br>
+                            <button class="button" value="Book Now" onClick="confirming()">
+                                <input class="btext" type="button" value="Book Now">
+                                <a class="tag" href="#">
+                                </a>
+                            </button>
+                            <br>
+                        </form>
+                </fieldset>
+            </p>
+        </p>
+    </div>
+
+</body>
+</html>
