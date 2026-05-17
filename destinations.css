@@ -12,9 +12,46 @@ body {
 
 .hero {
     min-height: 100vh;
-    background-image: linear-gradient(rgba(2, 43, 8, 0.705), rgba(12, 3, 51, 0.3));
+    background: linear-gradient(-45deg, #1a472a, #0e4166, #2c5f2d, #134e5e);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
     position: relative;
     padding: 0 5%;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(2, 43, 8, 0.5), rgba(12, 3, 51, 0.4));
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero > nav {
+    position: relative;
+    z-index: 1001;
+}
+
+.hero > .destinations-container {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 nav {
@@ -85,17 +122,6 @@ nav:hover {
     padding: 10px;
 }
 
-.bg-video {
-    position: fixed;
-    right: 0;
-    top: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1;
-    object-fit: cover;
-}
 
 .destinations-container {
     padding-top: 120px;
