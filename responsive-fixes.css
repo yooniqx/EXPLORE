@@ -1,0 +1,397 @@
+/* ========================================
+   COMPREHENSIVE RESPONSIVE DESIGN FIXES
+   For EXPLORE Travel Website
+   ======================================== */
+
+/* Mobile-First Responsive Breakpoints */
+/* Small devices (phones, 576px and down) */
+@media (max-width: 576px) {
+    /* Navigation */
+    nav {
+        padding: 15px 5%;
+    }
+    
+    .logo {
+        height: 45px !important;
+        width: 45px !important;
+    }
+    
+    .whole {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+    
+    .whole.active {
+        left: 0;
+    }
+    
+    .whole li a {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+    
+    .mobile-menu-toggle {
+        display: block !important;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    /* Hero Content */
+    .content h1 {
+        font-size: 36px !important;
+    }
+    
+    .tagline {
+        font-size: 16px !important;
+    }
+    
+    .cta-button {
+        padding: 12px 30px !important;
+        font-size: 14px !important;
+    }
+    
+    /* Chatbot */
+    .chatbot-toggle {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 20px;
+    }
+    
+    .chatbot-modal {
+        width: calc(100vw - 20px);
+        height: calc(100vh - 100px);
+        bottom: 80px;
+        right: 10px;
+        max-height: calc(100vh - 100px);
+    }
+    
+    .chatbot-header h3 {
+        font-size: 16px;
+    }
+    
+    .chatbot-suggestions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .suggestion-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Destinations Grid */
+    .destinations-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    
+    .destination-card {
+        max-width: 100%;
+    }
+    
+    /* Search and Filters */
+    .search-filter-section {
+        padding: 15px !important;
+    }
+    
+    .search-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .search-bar input {
+        width: 100%;
+    }
+    
+    .search-bar button {
+        width: 100%;
+    }
+    
+    .filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .filters select {
+        width: 100%;
+        min-width: 100%;
+    }
+    
+    .reset-btn {
+        width: 100%;
+    }
+    
+    /* Gallery Grid */
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+    
+    /* Contact Cards */
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Forms */
+    .name-inputs {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+    
+    .name-inputs input {
+        width: 100% !important;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Medium devices (tablets, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+    nav {
+        padding: 18px 5%;
+    }
+    
+    .logo {
+        height: 50px !important;
+        width: 50px !important;
+    }
+    
+    .whole {
+        gap: 25px;
+    }
+    
+    .whole li a {
+        font-size: 15px;
+    }
+    
+    .content h1 {
+        font-size: 48px !important;
+    }
+    
+    .tagline {
+        font-size: 18px !important;
+    }
+    
+    .chatbot-modal {
+        width: 380px;
+        height: 550px;
+    }
+    
+    .destinations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Large devices (desktops, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .destinations-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    
+    .contact-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* Extra large devices (large desktops, 1025px and up) */
+@media (min-width: 1025px) {
+    .destinations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)) !important;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+/* Landscape orientation fixes for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .chatbot-modal {
+        height: calc(100vh - 60px);
+        max-height: calc(100vh - 60px);
+    }
+    
+    .chatbot-header {
+        padding: 10px 15px;
+    }
+    
+    .chatbot-messages {
+        padding: 10px;
+    }
+    
+    .chatbot-input-area {
+        padding: 10px;
+    }
+}
+
+/* Prevent horizontal overflow */
+* {
+    max-width: 100%;
+}
+
+html, body {
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Ensure images don't overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for long text overflow */
+.card-description,
+.card-title h3,
+.footer-section p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Touch-friendly button sizes */
+@media (max-width: 768px) {
+    button,
+    .cta-button,
+    .learn-more-btn,
+    a[class*="btn"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Improve readability on small screens */
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
+    
+    h3 {
+        font-size: 20px;
+    }
+    
+    p {
+        line-height: 1.6;
+    }
+}
+
+/* Fix for sticky elements on mobile */
+@media (max-width: 768px) {
+    nav {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+    
+    .hero {
+        padding-top: 80px;
+    }
+    
+    .destinations-container,
+    .gallery-container,
+    .contact-container,
+    .feedback-container {
+        padding-top: 100px;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .chatbot-modal,
+    .destination-card,
+    .gallery-item {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Dark mode support (if system prefers dark) */
+@media (prefers-color-scheme: dark) {
+    /* Already dark themed, but ensure consistency */
+    .destination-card,
+    .contact-card {
+        background: rgba(255, 255, 255, 0.95);
+    }
+}
+
+/* Print styles */
+@media print {
+    .chatbot-toggle,
+    .chatbot-modal,
+    nav,
+    .mobile-menu-toggle,
+    .social-links {
+        display: none !important;
+    }
+    
+    .hero {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .destination-card,
+    .gallery-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* Made with Bob */
