@@ -37,6 +37,33 @@ html, body {
    Enhanced Professional Mobile UI
    ======================================== */
 @media (max-width: 576px) {
+    /* ===== HERO BACKGROUND OPTIMIZATION ===== */
+    .hero {
+        /* Disable fixed attachment on mobile for better performance */
+        background-attachment: scroll !important;
+        /* Optimize background rendering */
+        background-size: cover !important;
+        background-position: center center !important;
+        /* Better image quality on mobile */
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: high-quality;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        /* Prevent blurry scaling */
+        -webkit-transform: translateZ(0) scale(1.0);
+        transform: translateZ(0) scale(1.0);
+        will-change: transform;
+    }
+    
+    .hero::after {
+        /* Optimize secondary background */
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: high-quality;
+    }
+    
     /* ===== NAVIGATION ===== */
     nav {
         padding: 12px 5% !important;
@@ -485,6 +512,21 @@ html, body {
    TABLET DEVICES (577px - 768px)
    ======================================== */
 @media (min-width: 577px) and (max-width: 768px) {
+    /* ===== HERO BACKGROUND OPTIMIZATION ===== */
+    .hero {
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: high-quality;
+    }
+    
+    .hero::after {
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+    
     nav {
         padding: 18px 5%;
     }
