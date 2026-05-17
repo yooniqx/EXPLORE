@@ -239,6 +239,54 @@
       "bestTime": "March to May, September to November",
       "category": "historical",
       "wikiLink": "https://en.wikipedia.org/wiki/Petra"
+    },
+    {
+      "id": 21,
+      "name": "India",
+      "country": "India",
+      "continent": "Asia",
+      "image": "india.jpg",
+      "description": "Land of diverse cultures, ancient temples, and the iconic Taj Mahal. Experience vibrant festivals, spiritual sites, and incredible cuisine.",
+      "highlights": ["Taj Mahal", "Golden Temple", "Jaipur Palaces", "Kerala Backwaters", "Varanasi Ghats"],
+      "bestTime": "October to March",
+      "category": "cultural",
+      "wikiLink": "https://en.wikipedia.org/wiki/India"
+    },
+    {
+      "id": 22,
+      "name": "Hawaii",
+      "country": "United States",
+      "continent": "North America",
+      "image": "hawai.jpg",
+      "description": "Tropical paradise with volcanic landscapes, pristine beaches, and rich Polynesian culture. Perfect for surfing, hiking, and relaxation.",
+      "highlights": ["Waikiki Beach", "Pearl Harbor", "Volcanoes National Park", "Na Pali Coast", "Haleakala"],
+      "bestTime": "April to June, September to November",
+      "category": "beach",
+      "wikiLink": "https://en.wikipedia.org/wiki/Hawaii"
+    },
+    {
+      "id": 23,
+      "name": "Thailand",
+      "country": "Thailand",
+      "continent": "Asia",
+      "image": "no10thailand.jpg",
+      "description": "Land of smiles offering golden temples, tropical beaches, bustling markets, and world-renowned cuisine.",
+      "highlights": ["Grand Palace Bangkok", "Phi Phi Islands", "Chiang Mai Temples", "Floating Markets", "Phuket Beaches"],
+      "bestTime": "November to February",
+      "category": "tropical",
+      "wikiLink": "https://en.wikipedia.org/wiki/Thailand"
+    },
+    {
+      "id": 24,
+      "name": "China",
+      "country": "China",
+      "continent": "Asia",
+      "image": "china.jpg",
+      "description": "Ancient civilization with the Great Wall, Forbidden City, and modern megacities. Rich history spanning thousands of years.",
+      "highlights": ["Great Wall", "Forbidden City", "Terracotta Army", "Li River", "Shanghai Skyline"],
+      "bestTime": "April to May, September to October",
+      "category": "historical",
+      "wikiLink": "https://en.wikipedia.org/wiki/China"
     }
   ]
 }
