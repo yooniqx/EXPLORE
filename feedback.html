@@ -1,86 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="feedbackstyle.css">
-    <title>
-        Feedback
-    </title>
-    <script type="text/javascript">
-        function feedbackcomplete() 
-        {
-            alert("Your feedback is submitted")
-        }
-    </script>
+    <title>Feedback - EXPLORE</title>
 </head>
-<div class="hero">
- 
-    <video autoplay loop muted plays-inline class="bg-video">
-        <source src="feedbackvideo.mp4" type="video/mp4">
-    </video>
-    <nav>
+<body>
+    <div class="hero">
+        <video autoplay loop muted playsinline class="bg-video">
+            <source src="feedbackvideo.mp4" type="video/mp4">
+        </video>
+        
+        <nav>
+            <img class="logo" src="logoexp.jpeg" alt="EXPLORE Logo" height="60" width="60">
+            <ul class="whole">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fa fa-bars"></i>
+            </button>
+        </nav>
+        
+        <div class="feedback-container">
+            <fieldset class="field">
+                <legend>Your Feedback & Support</legend>
+                <form id="feedbackForm" class="form">
+                    <label for="firstname">Full Name:</label>
+                    <div class="name-inputs">
+                        <input type="text" id="firstname" name="firstname" placeholder="First name" required>
+                        <input type="text" id="lastname" name="lastname" placeholder="Last name" required>
+                    </div>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    
+                    <label for="select">Rate Your Experience:</label>
+                    <select id="select" name="rating" required>
+                        <option value="">Select rating</option>
+                        <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                        <option value="4">⭐⭐⭐⭐ Very Good</option>
+                        <option value="3">⭐⭐⭐ Good</option>
+                        <option value="2">⭐⭐ Fair</option>
+                        <option value="1">⭐ Needs Improvement</option>
+                    </select>
+                    
+                    <label for="feedbackType">Feedback Type:</label>
+                    <select id="feedbackType" name="feedbackType" required>
+                        <option value="">Select type</option>
+                        <option value="General Feedback">General Feedback</option>
+                        <option value="Bug Report">Bug Report</option>
+                        <option value="Feature Request">Feature Request</option>
+                        <option value="Support Request">Support Request</option>
+                        <option value="Suggestion">Suggestion</option>
+                    </select>
+                    
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="8" placeholder="Share your thoughts, suggestions, or report any issues..." required></textarea>
+                    
+                    <div class="form-footer">
+                        <p class="privacy-note">
+                            <i class="fa fa-lock"></i> Your feedback helps us improve. We value your privacy.
+                        </p>
+                        <button type="submit" class="submit" id="submitBtn">
+                            <i class="fa fa-paper-plane"></i> Submit Feedback
+                        </button>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
 
-        <ul class="whole">
+    <!-- AI Travel Chatbot Button -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open travel assistant">
+        <i class="fa fa-comments"></i>
+    </button>
+
+    <!-- Chatbot Modal -->
+    <div class="chatbot-modal" id="chatbotModal">
+        <div class="chatbot-header">
+            <h3><i class="fa fa-compass"></i> Travel Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Close chat">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <p>👋 Hello! I'm your AI travel guide. Ask me anything about destinations, travel tips, or planning your trip!</p>
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbotInput" placeholder="Ask me anything about travel..." />
+            <button id="chatbotSend" aria-label="Send message">
+                <i class="fa fa-paper-plane"></i>
+            </button>
+        </div>
+        <div class="chatbot-suggestions">
+            <button class="suggestion-btn" data-query="Best beaches in Asia">🏖️ Best beaches</button>
+            <button class="suggestion-btn" data-query="Budget travel tips">💰 Budget tips</button>
+            <button class="suggestion-btn" data-query="Historical sites in Europe">🏛️ Historical sites</button>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/d8d8cac81e.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>
+        // Feedback form submission with mailto
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            <li><a href="homepage1.html">Home</a></li>
-            <li><a href="tplaces.html">Popular Places</a></li>
-            <li><a href="booking.html">Booking</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contactus.html">Contact Us</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
-        </ul>
-    </nav>
-    <div>
-    <body text="white" alink="yellow" vlink="yellow">
-    <script type="text/javascript">
-        var form = document.getElementById("form")
-        form.addEventListener("submit", function(event){
-            event.preventDefault
+            const firstname = document.getElementById('firstname').value;
+            const lastname = document.getElementById('lastname').value;
+            const email = document.getElementById('email').value;
+            const rating = document.getElementById('select').value;
+            const feedbackType = document.getElementById('feedbackType').value;
+            const message = document.getElementById('message').value;
+            
+            // Get rating text
+            const ratingText = document.getElementById('select').options[document.getElementById('select').selectedIndex].text;
+            
+            // Construct email
+            const subject = `EXPLORE Feedback: ${feedbackType}`;
+            const body = `
+Name: ${firstname} ${lastname}
+Email: ${email}
+Rating: ${ratingText}
+Feedback Type: ${feedbackType}
 
-            var firstname = document.getElementById("firstname").value
-            var lastname = document.getElementById("lastname").value
-            var email = document.getElementById("email").value
-            var select = document.getElementById("select").value
-            var message = document.getElementById("message").value
-            console.log("firstname")
-            console.log("lastname")
-            console.log("email")
-            console.log("select")
-            console.log("message")
-        })
+Message:
+${message}
+
+---
+Sent from EXPLORE Tourism Website
+            `.trim();
+            
+            // Create mailto link
+            const mailtoLink = `mailto:dbose0906@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open mail client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            setTimeout(() => {
+                alert('Thank you for your feedback! Your email client should open now. If it doesn\'t, please email us directly at dbose0906@gmail.com');
+                // Reset form
+                document.getElementById('feedbackForm').reset();
+            }, 500);
+        });
     </script>
-    <fieldset class="field">
-        <legend>
-            Your Review:
-        </legend>
-        <i>
-        <form method="post" class="form" id="form">
-        <label for="firstname">Full Name: </label>
-        <input type="text" id="firstname"  name="firstname" size="20" placeholder=" enter firstname" required>
-        <input type="text" id="lastname"  name="lastname" size="30" placeholder=" enter lastname" required>
-        <br><br>
-        <label for="email">Email: </label>
-        <input type="text" id="email"  name="email" size="50" placeholder=" enter email" required>
-        <br><br>
-        <label for="rate">Rate: </label>
-        <SELECT id="select" required>
-            <OPTION>⭐⭐⭐⭐⭐</OPTION>
-            <OPTION>⭐⭐⭐⭐</OPTION>
-            <OPTION>⭐⭐⭐</OPTION>
-            <OPTION>⭐⭐</OPTION>
-            <OPTION>⭐</OPTION>
-        </SELECT>
-        <br><br>
-        <label for="message">Tell us more:</label>
-        <br>
-        <textarea id="message"  name="message" rows="9" cols="150" placeholder="give your views" required></textarea>
-        <br><br>
-        <p align="center">
-            <button type="submit" class="submit" value="submit" onClick="feedbackcomplete()" id="submit">Submit</button>
-        </p>
-        </form>
-        </i>
-    </fieldset>
-    </div> 
-</div>
 </body>
-</html>  
+</html>

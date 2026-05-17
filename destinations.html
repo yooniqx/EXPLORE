@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - EXPLORE</title>
+    <link rel="stylesheet" href="destinations.css">
+    <script src="https://kit.fontawesome.com/d8d8cac81e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="hero">
+        <video autoplay loop muted playsinline class="bg-video">
+            <source src="tplaces.mp4" type="video/mp4">
+        </video>
+        
+        <nav>
+            <img class="logo" src="logoexp.jpeg" alt="EXPLORE Logo" height="60" width="60">
+            <ul class="whole">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fa fa-bars"></i>
+            </button>
+        </nav>
+
+        <div class="destinations-container">
+            <div class="page-header">
+                <h1>Discover Amazing Destinations</h1>
+                <p>Explore the world's most incredible places</p>
+            </div>
+
+            <!-- Search and Filter Section -->
+            <div class="search-filter-section">
+                <div class="search-bar">
+                    <input type="text" id="destinationSearch" placeholder="Search destinations...">
+                    <button id="searchBtn"><i class="fa fa-search"></i></button>
+                </div>
+                
+                <div class="filters">
+                    <select id="continentFilter">
+                        <option value="all">All Continents</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Asia">Asia</option>
+                        <option value="North America">North America</option>
+                        <option value="South America">South America</option>
+                        <option value="Africa">Africa</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                    
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="cultural">Cultural</option>
+                        <option value="historical">Historical</option>
+                        <option value="nature">Nature</option>
+                        <option value="beach">Beach</option>
+                        <option value="modern">Modern</option>
+                        <option value="adventure">Adventure</option>
+                    </select>
+                    
+                    <button id="resetFilters" class="reset-btn">Reset Filters</button>
+                </div>
+            </div>
+
+            <!-- Results Count -->
+            <div class="results-info">
+                <p id="resultsCount">Loading destinations...</p>
+            </div>
+
+            <!-- Destinations Grid -->
+            <div class="destinations-grid" id="destinationsGrid">
+                <!-- Destinations will be loaded here dynamically -->
+            </div>
+
+            <!-- No Results Message -->
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fa fa-search"></i>
+                <h3>No destinations found</h3>
+                <p>Try adjusting your search or filters</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Travel Chatbot Button -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open travel assistant">
+        <i class="fa fa-comments"></i>
+    </button>
+
+    <!-- Chatbot Modal -->
+    <div class="chatbot-modal" id="chatbotModal">
+        <div class="chatbot-header">
+            <h3><i class="fa fa-compass"></i> Travel Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Close chat">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <p>👋 Hello! I'm your AI travel guide. Ask me anything about destinations, travel tips, or planning your trip!</p>
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbotInput" placeholder="Ask me anything about travel..." />
+            <button id="chatbotSend" aria-label="Send message">
+                <i class="fa fa-paper-plane"></i>
+            </button>
+        </div>
+        <div class="chatbot-suggestions">
+            <button class="suggestion-btn" data-query="Best beaches in Asia">🏖️ Best beaches</button>
+            <button class="suggestion-btn" data-query="Budget travel tips">💰 Budget tips</button>
+            <button class="suggestion-btn" data-query="Historical sites in Europe">🏛️ Historical sites</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="destinations.js"></script>
+</body>
+</html>

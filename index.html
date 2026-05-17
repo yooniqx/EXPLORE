@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPLORE - Discover the World</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d8d8cac81e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="flex-container">
+        <div class="hero">
+ 
+            <video autoplay loop muted playsinline class="bg-video">
+                <source src="bgvideo.mp4" type="video/mp4">
+            </video>
+            <nav>
+                <img class="logo" src="logoexp.jpeg" alt="EXPLORE Logo" height="60" width="60">
+                <ul class="whole">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </nav>
+        
+            <div class="row">
+                <div class="content">
+                    <h1>EXPLORE.X</h1>
+                    <p class="tagline">Discover Amazing Destinations Around the World</p>
+                    <a href="destinations.html" class="cta-button">Start Exploring</a>
+                </div>
+                
+                <form class="search-box" id="searchForm">
+                    <input class="search-txt" type="text" id="searchInput" placeholder="Search destinations...">
+                    <button class="search-btn" type="submit">
+                        <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Travel Chatbot Button -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open travel assistant">
+        <i class="fa fa-comments"></i>
+    </button>
+
+    <!-- Chatbot Modal -->
+    <div class="chatbot-modal" id="chatbotModal">
+        <div class="chatbot-header">
+            <h3><i class="fa fa-compass"></i> Travel Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Close chat">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <p>👋 Hello! I'm your AI travel guide. I can help you with:</p>
+                <ul>
+                    <li>🗺️ Destination recommendations</li>
+                    <li>✈️ Trip planning advice</li>
+                    <li>💰 Budget tips</li>
+                    <li>🏛️ Local attractions</li>
+                    <li>📅 Best times to visit</li>
+                </ul>
+                <p>What would you like to know?</p>
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbotInput" placeholder="Ask me anything about travel..." />
+            <button id="chatbotSend" aria-label="Send message">
+                <i class="fa fa-paper-plane"></i>
+            </button>
+        </div>
+        <div class="chatbot-suggestions">
+            <button class="suggestion-btn" data-query="Best beaches in Asia">🏖️ Best beaches</button>
+            <button class="suggestion-btn" data-query="Budget travel tips">💰 Budget tips</button>
+            <button class="suggestion-btn" data-query="Historical sites in Europe">🏛️ Historical sites</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

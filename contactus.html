@@ -1,77 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="contactusstyle.css">
-    <title>
-        Contact Us
-    </title>
+    <script src="https://kit.fontawesome.com/d8d8cac81e.js" crossorigin="anonymous"></script>
+    <title>Contact Us - EXPLORE</title>
 </head>
 <body>
     <div class="hero">
- 
-        <video autoplay loop muted plays-inline class="bg-video">
+        <video autoplay loop muted playsinline class="bg-video">
             <source src="contactusvideo.mp4" type="video/mp4">
         </video>
+        
         <nav>
-
+            <img class="logo" src="logoexp.jpeg" alt="EXPLORE Logo" height="60" width="60">
             <ul class="whole">
-                
-                <li><a href="homepage1.html">Home</a></li>
-                <li><a href="tplaces.html">Popular Places</a></li>
-                <li><a href="booking.html">Booking</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contactus.html">Contact Us</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
             </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fa fa-bars"></i>
+            </button>
         </nav>
-        <p align="center">
-            <table class="table">
-                <tr><td>
-                    <p class="heading"> 
-                        CONTACT  DETAILS
-                    </p>
-                </td></tr>
-                <td><tr>
+        
+        <div class="contact-container">
+            <div class="page-header">
+                <h1>Get In Touch</h1>
+                <p>We'd love to hear from you about your travel experiences</p>
+            </div>
 
-                </tr></td>
-                <td><tr>
-                    
-                </tr></td>
-                <tr><td>
-                    <fieldset class="one">
-                        <legend>
-                        Ph number:
-                        </legend>
-                        📞 02-312-3456
-                        <br>
-                        📞 02-312-3455
-                        <br>
-                        📞 051-212-3456
-                    </fieldset>
-                </td></tr>
-                <tr><td>
-                    <fieldset class="two">
-                        <legend>
-                        E-mail:
-                        </legend>
-                        ✉ axyyyz@gmail.com
-                        <br>
-                        ✉ vyyfx@gmail.com
-                    </fieldset>
-                </td></tr>
-                <tr><td>
-                    <fieldset class="three">
-                        <legend>
-                            Ofice Address:
-                        </legend>
-                        AX/8 - Myeongdong Street, Seoul, South Korea
-                    </fieldset>
-                </td></tr>
-            </table>
-        </p>
-        
-        
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="icon-wrapper">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>For general inquiries and support</p>
+                    <a href="mailto:dbose0906@gmail.com">dbose0906@gmail.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon-wrapper">
+                        <i class="fa fa-comments"></i>
+                    </div>
+                    <h3>AI Travel Assistant</h3>
+                    <p>Get instant travel advice 24/7</p>
+                    <button class="chat-btn" onclick="document.getElementById('chatbotToggle').click()">
+                        Start Chat
+                    </button>
+                </div>
+
+                <div class="contact-card">
+                    <div class="icon-wrapper">
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <h3>Share Feedback</h3>
+                    <p>Help us improve your experience</p>
+                    <a href="feedback.html" class="feedback-link">Give Feedback</a>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>About EXPLORE</h2>
+                <p>
+                    EXPLORE is your comprehensive travel guide platform, designed to help you discover 
+                    amazing destinations around the world. We provide detailed information about popular 
+                    tourist spots, travel tips, and personalized recommendations through our AI travel assistant.
+                </p>
+                <p>
+                    Whether you're planning a beach vacation, historical tour, or adventure trip, 
+                    EXPLORE has everything you need to make informed travel decisions.
+                </p>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fa fa-globe"></i>
+                        <h4>Global Destinations</h4>
+                        <p>Explore places from every continent</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa fa-robot"></i>
+                        <h4>AI Assistant</h4>
+                        <p>Get personalized travel advice</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa fa-search"></i>
+                        <h4>Smart Search</h4>
+                        <p>Find destinations easily</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa fa-mobile"></i>
+                        <h4>Mobile Friendly</h4>
+                        <p>Access anywhere, anytime</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-btn" aria-label="Facebook">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="Twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="Instagram">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="LinkedIn">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
+    <!-- AI Travel Chatbot Button -->
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Open travel assistant">
+        <i class="fa fa-comments"></i>
+    </button>
+
+    <!-- Chatbot Modal -->
+    <div class="chatbot-modal" id="chatbotModal">
+        <div class="chatbot-header">
+            <h3><i class="fa fa-compass"></i> Travel Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Close chat">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <p>👋 Hello! I'm your AI travel guide. Ask me anything about destinations, travel tips, or planning your trip!</p>
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbotInput" placeholder="Ask me anything about travel..." />
+            <button id="chatbotSend" aria-label="Send message">
+                <i class="fa fa-paper-plane"></i>
+            </button>
+        </div>
+        <div class="chatbot-suggestions">
+            <button class="suggestion-btn" data-query="Best beaches in Asia">🏖️ Best beaches</button>
+            <button class="suggestion-btn" data-query="Budget travel tips">💰 Budget tips</button>
+            <button class="suggestion-btn" data-query="Historical sites in Europe">🏛️ Historical sites</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
