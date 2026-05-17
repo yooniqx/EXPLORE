@@ -8,6 +8,8 @@
 
 > **Discover amazing destinations worldwide with intelligent AI-powered travel guidance and seamless search capabilities**
 
+🔗 **Live Demo:** [https://explore-923.pages.dev/](https://explore-923.pages.dev/)
+
 ---
 
 ## 📖 Overview
@@ -15,8 +17,6 @@
 **EXPLORE** is a modern, feature-rich travel discovery platform that combines beautiful design with intelligent functionality. Built with pure HTML, CSS, and JavaScript, it offers travelers a comprehensive guide to destinations worldwide, enhanced by an AI-powered chatbot that provides personalized travel advice, budget tips, and destination recommendations.
 
 The platform features persistent chat history, advanced search with Wikipedia integration, responsive design across all devices, and a professional user interface that makes travel planning intuitive and enjoyable.
-
-🔗 **Live Demo:** [Coming Soon - Deploy to Cloudflare Pages](CLOUDFLARE_DEPLOYMENT_GUIDE.md)
 
 ---
 
@@ -71,11 +71,7 @@ The platform features persistent chat history, advanced search with Wikipedia in
   - WCAG AA compliant contrast ratios
 
 ### 🎨 Professional UI/UX
-- **Consistent Footer** across all pages with:
-  - Brand information and social links
-  - Quick navigation links
-  - Developer credits with GitHub/Portfolio links
-  - Copyright and disclaimer
+- **Consistent Footer** across all pages
 - **Smooth Animations** - CSS transitions and hover effects
 - **Modern Design** - Clean interface with gradient accents
 - **Video Backgrounds** - Immersive animated backgrounds
@@ -85,27 +81,6 @@ The platform features persistent chat history, advanced search with Wikipedia in
 - **Smart Feedback System** with integrated mailto functionality
 - **5-Star Rating System** for user experiences
 - **Contact Integration** with form auto-population
-- **Social Media Ready** with sharing capabilities
-
----
-
-## 📸 Screenshots
-
-### Homepage
-![Homepage](https://via.placeholder.com/800x400/667eea/ffffff?text=EXPLORE+Homepage)
-*Modern homepage with video background and AI chatbot*
-
-### Destinations Page
-![Destinations](https://via.placeholder.com/800x400/764ba2/ffffff?text=Destinations+Search)
-*Advanced search with Wikipedia fallback for worldwide coverage*
-
-### AI Chatbot
-![Chatbot](https://via.placeholder.com/800x400/f093fb/ffffff?text=AI+Travel+Assistant)
-*Intelligent chatbot with persistent conversation history*
-
-### Mobile Responsive
-![Mobile](https://via.placeholder.com/400x600/4facfe/ffffff?text=Mobile+Responsive)
-*Fully responsive design with hamburger menu and full-screen chatbot*
 
 ---
 
@@ -234,30 +209,6 @@ The AI travel assistant provides comprehensive guidance across 15+ categories:
 | **Travel Safety** | Health precautions, document requirements, emergency contacts |
 | **Site Navigation** | How to use the platform effectively |
 
-### Technical Implementation
-
-```javascript
-// Chat history persistence using sessionStorage
-function saveChatHistory() {
-    const messages = Array.from(chatMessages.children).map(msg => ({
-        role: msg.classList.contains('user-message') ? 'user' : 'bot',
-        content: msg.textContent
-    }));
-    sessionStorage.setItem('chatHistory', JSON.stringify(messages));
-}
-
-// Intelligent response generation
-function generateBotResponse(userMessage) {
-    const message = userMessage.toLowerCase();
-    
-    // 15+ response categories with detailed information
-    if (message.includes('budget') || message.includes('cost')) {
-        return "Budget tips: Accommodation ($20-200/night), Food ($10-50/day)...";
-    }
-    // ... more categories
-}
-```
-
 ### Features
 - ✅ Persistent conversation history across all pages
 - ✅ Session-based storage (clears on tab close)
@@ -272,25 +223,12 @@ function generateBotResponse(userMessage) {
 
 ### Advanced Search Algorithm
 
-```javascript
-// Word-boundary matching prevents false positives
-function wordBoundaryMatch(text, search) {
-    const regex = new RegExp('\\b' + search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
-    return regex.test(text);
-}
+The search system uses intelligent word-boundary matching to prevent false positives and ranks results based on relevance:
 
-// Intelligent ranking system
-const ranking = {
-    exactMatch: 1000,      // "Paris" matches "Paris"
-    nameStartsWith: 500,   // "Par" matches "Paris"
-    countryStartsWith: 400,
-    wordInName: 350,
-    wordInCountry: 250,
-    wordInContinent: 150,
-    wordInHighlights: 100,
-    wordInDescription: 50
-};
-```
+- **Exact match**: 1000 points
+- **Name starts with**: 500 points
+- **Country starts with**: 400 points
+- **Word boundary matches** in name/country/continent/highlights/description
 
 ### Wikipedia Fallback
 
@@ -318,28 +256,12 @@ When a destination isn't in the local database:
 
 ### Accessibility Features
 
-```css
-/* Reduced motion for users with vestibular disorders */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none !important;
-        transition: none !important;
-    }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-    .button {
-        border: 2px solid currentColor;
-    }
-}
-
-/* Touch-friendly buttons */
-.button {
-    min-height: 44px;
-    min-width: 44px;
-}
-```
+- Reduced motion support for users with vestibular disorders
+- High contrast mode support
+- Touch-friendly buttons (minimum 44px)
+- Keyboard navigation
+- Screen reader friendly structure
+- WCAG AA compliant contrast ratios
 
 ---
 
@@ -373,7 +295,7 @@ When a destination isn't in the local database:
 3. **Deploy**
    - Click **Save and Deploy**
    - Wait 1-3 minutes for deployment
-   - Your site is live at `https://your-project.pages.dev`
+   - Your site is live!
 
 #### Automatic Updates
 
@@ -388,256 +310,27 @@ git push origin main
 # Cloudflare automatically deploys in 1-3 minutes
 ```
 
-### Alternative Deployment Options
-
-<details>
-<summary><b>Netlify</b></summary>
-
-```bash
-# Build settings
-Build command: (leave empty)
-Publish directory: /
-```
-
-Deploy: [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start)
-</details>
-
-<details>
-<summary><b>Vercel</b></summary>
-
-```json
-// vercel.json
-{
-  "cleanUrls": true,
-  "trailingSlash": false
-}
-```
-
-Deploy: [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
-</details>
-
-<details>
-<summary><b>GitHub Pages</b></summary>
-
-1. Go to repository **Settings** → **Pages**
-2. Set source to `main` branch
-3. Access via `https://yourusername.github.io/CSS_PROJECT`
-</details>
-
 ---
 
-## 🎯 Usage Guide
-
-### For Travelers
-
-1. **Browse Destinations**
-   - Navigate to Destinations page
-   - Explore 20+ curated locations
-   - Click cards for Wikipedia details
-
-2. **Search Worldwide**
-   - Use search bar to find any destination
-   - Try: "Paris", "Tokyo", "Maldives", "Agra"
-   - Wikipedia fallback for places not in database
-
-3. **Get AI Assistance**
-   - Click chatbot icon (bottom-right)
-   - Ask about: budget, destinations, safety, planning
-   - Chat history persists across pages
-
-4. **Provide Feedback**
-   - Visit Feedback page
-   - Rate your experience (1-5 stars)
-   - Submit suggestions via email
-
-### For Developers
-
-1. **Add Destinations**
-   ```json
-   // Edit destinations.json
-   {
-     "id": 21,
-     "name": "New Destination",
-     "country": "Country",
-     "continent": "Continent",
-     "image": "image.jpg",
-     "description": "Description...",
-     "highlights": ["Attraction 1", "Attraction 2"],
-     "bestTime": "Best season",
-     "category": "cultural",
-     "wikiLink": "https://en.wikipedia.org/wiki/..."
-   }
-   ```
-
-2. **Customize Chatbot**
-   ```javascript
-   // Edit script.js - generateBotResponse()
-   if (message.includes('your-keyword')) {
-       return "Your custom response...";
-   }
-   ```
-
-3. **Update Styling**
-   ```css
-   /* Edit respective CSS files */
-   :root {
-       --primary-color: #667eea;
-       --secondary-color: #764ba2;
-   }
-   ```
-
-4. **Test Locally**
-   ```bash
-   python -m http.server 8000
-   # Visit http://localhost:8000
-   ```
-
----
-
-## 🧪 Testing
-
-### Local Testing Checklist
-
-- [ ] All pages load correctly
-- [ ] Navigation works on all pages
-- [ ] Chatbot opens and responds
-- [ ] Chat history persists when switching pages
-- [ ] Chat history clears when closing browser tab
-- [ ] Destination search works accurately
-- [ ] Wikipedia fallback displays for unknown destinations
-- [ ] Footer appears on all pages
-- [ ] Footer links work correctly
-- [ ] Responsive design works on mobile/tablet/desktop
-- [ ] No console errors (F12)
-- [ ] All images load
-- [ ] Forms submit correctly
-
-### Browser Compatibility
-
-| Browser | Version | Status |
-|---------|---------|--------|
-| Chrome | 80+ | ✅ Fully Supported |
-| Firefox | 75+ | ✅ Fully Supported |
-| Safari | 13+ | ✅ Fully Supported |
-| Edge | 80+ | ✅ Fully Supported |
-| Chrome Mobile | Latest | ✅ Fully Supported |
-| Safari iOS | Latest | ✅ Fully Supported |
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-### Getting Started
-
-1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Make your changes**
-4. **Test thoroughly**
-   ```bash
-   python -m http.server 8000
-   ```
-5. **Commit with clear message**
-   ```bash
-   git commit -m "Add: Amazing new feature"
-   ```
-6. **Push to your fork**
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-7. **Open a Pull Request**
-
-### Contribution Guidelines
-
-- ✅ Follow existing code style and structure
-- ✅ Test on multiple browsers and devices
-- ✅ Update documentation for new features
-- ✅ Ensure mobile responsiveness
-- ✅ Add appropriate code comments
-- ✅ No external dependencies (keep it lightweight)
-- ✅ Maintain Cloudflare Pages compatibility
-
-### Code Style
-
-```javascript
-// Use clear, descriptive names
-function calculateDestinationRanking(destination, searchTerm) {
-    // Add comments for complex logic
-    let score = 0;
-    
-    // Use consistent formatting
-    if (destination.name === searchTerm) {
-        score += 1000;
-    }
-    
-    return score;
-}
-```
-
----
-
-## 🎓 AI Assistance Used
+## 🎓 AI Tools Used
 
 This project was developed with assistance from AI tools to enhance quality, efficiency, and best practices:
 
 ### ChatGPT (OpenAI)
-- **UI/UX Design Ideas** - Layout suggestions, color schemes, user flow optimization
-- **Debugging Assistance** - Identifying and resolving JavaScript bugs, CSS issues
-- **Architecture Guidance** - Project structure, file organization, code modularity
-- **Content Generation** - Destination descriptions, chatbot responses, documentation
+- UI/UX design ideas and layout suggestions
+- Debugging assistance for JavaScript and CSS issues
+- Architecture guidance and project structure
+- Content generation for destination descriptions and chatbot responses
 
-### IBM Granite / Bob (Roo-Cline)
-- **Implementation Assistance** - Code writing, feature implementation, bug fixes
-- **Code Optimization** - Performance improvements, refactoring, best practices
-- **Debugging & Refinement** - Testing, error handling, edge case management
-- **Documentation** - README creation, deployment guides, code comments
+### IBM Bob (Roo-Cline)
+- Code implementation and feature development
+- Code optimization and refactoring
+- Debugging and error handling
+- Documentation creation and maintenance
 
 ### Transparency Statement
 
-AI tools were used as **assistive technologies** to:
-- Accelerate development workflow
-- Improve code quality and consistency
-- Generate comprehensive documentation
-- Provide architectural guidance
-- Debug complex issues efficiently
-
-**All code was reviewed, tested, and validated** by the developer. AI suggestions were critically evaluated and adapted to project requirements. The final implementation reflects human oversight and decision-making.
-
----
-
-## 📈 Future Enhancements
-
-### Planned Features
-
-- [ ] **User Authentication** - Login/signup with profile management
-- [ ] **Favorites System** - Save and organize favorite destinations
-- [ ] **Advanced AI Integration** - External API integration (OpenAI, Google Gemini)
-- [ ] **Multi-language Support** - i18n implementation for global audience
-- [ ] **Offline Functionality** - Service workers for offline access
-- [ ] **Booking Integration** - Connect with booking platforms (Booking.com, Airbnb)
-- [ ] **User Reviews** - Community-generated content and ratings
-- [ ] **Interactive Maps** - Google Maps/Mapbox integration
-- [ ] **Weather Integration** - Real-time weather data for destinations
-- [ ] **Currency Converter** - Live exchange rates
-- [ ] **Flight Price Tracking** - Monitor flight prices
-- [ ] **Travel Itinerary Builder** - Create and share travel plans
-- [ ] **Social Sharing** - Share destinations on social media
-- [ ] **Dark Mode** - Theme toggle for better UX
-
-### Technical Improvements
-
-- [ ] **Progressive Web App (PWA)** - Installable app experience
-- [ ] **Image Lazy Loading** - Improve initial page load
-- [ ] **Code Splitting** - Optimize JavaScript bundle size
-- [ ] **CDN for Images** - Faster image delivery
-- [ ] **Analytics Integration** - Google Analytics/Plausible
-- [ ] **A/B Testing** - Optimize user experience
-- [ ] **Performance Monitoring** - Lighthouse CI integration
-- [ ] **Automated Testing** - Jest/Cypress test suite
+AI tools were used as **assistive technologies** to accelerate development, improve code quality, and generate comprehensive documentation. **All code was reviewed, tested, and validated** by the developer. AI suggestions were critically evaluated and adapted to project requirements.
 
 ---
 
@@ -654,49 +347,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ❌ Liability  
 ❌ Warranty  
-
----
-
-## 👨‍💻 Credits
-
-### Developer
-
-**Debopriya Bose**
-- 📧 Email: [dbose0906@gmail.com](mailto:dbose0906@gmail.com)
-- 💼 GitHub: [@yourusername](https://github.com/yourusername)
-- 🌐 Portfolio: [yourportfolio.com](https://yourportfolio.com)
-
-### Acknowledgments
-
-- **FontAwesome** - Beautiful icon library
-- **Unsplash/Pexels** - High-quality destination images
-- **Wikipedia** - Comprehensive destination information
-- **Cloudflare** - Hosting and global CDN services
-- **OpenAI ChatGPT** - AI assistance for development
-- **IBM Granite/Bob** - Code implementation and optimization
-
-### Special Thanks
-
-- Open source community for inspiration and resources
-- Beta testers for valuable feedback
-- Travel enthusiasts who provided destination insights
-
----
-
-## 📞 Support & Contact
-
-### Get Help
-
-- 📖 **Documentation**: Check this README and [Deployment Guide](CLOUDFLARE_DEPLOYMENT_GUIDE.md)
-- 🐛 **Bug Reports**: [Open an issue](https://github.com/yourusername/CSS_PROJECT/issues)
-- 💡 **Feature Requests**: [Submit a request](https://github.com/yourusername/CSS_PROJECT/issues)
-- 📧 **Email**: [dbose0906@gmail.com](mailto:dbose0906@gmail.com)
-
-### Community
-
-- ⭐ **Star this repo** if you find it helpful
-- 🔀 **Fork and contribute** to make it better
-- 📢 **Share with others** who might benefit
 
 ---
 
@@ -718,18 +368,12 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <div align="center">
 
-## 🌟 Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/CSS_PROJECT&type=Date)](https://star-history.com/#yourusername/CSS_PROJECT&Date)
-
----
-
 **Made with ❤️ for travelers around the world**
 
-[🌍 Explore Now](https://your-explore-site.pages.dev) | [📧 Contact](mailto:dbose0906@gmail.com) | [⭐ Star on GitHub](https://github.com/yourusername/CSS_PROJECT)
+[🌍 Live Demo](https://explore-923.pages.dev/) | [📂 GitHub Repository](https://github.com/yourusername/CSS_PROJECT)
 
 ---
 
-*Last Updated: May 2026*
+*Educational Project - May 2026*
 
 </div>
