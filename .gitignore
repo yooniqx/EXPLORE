@@ -1,0 +1,21 @@
+# Large video files (too big for GitHub)
+*.mp4
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+
+# Build files
+.dist/
+node_modules/
+
+# Temporary files
+*.tmp
+*.log
+
+# Made with Bob
