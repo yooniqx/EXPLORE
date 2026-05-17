@@ -79,7 +79,6 @@ div::-webkit-scrollbar {
 .form{
         background-color:transparent;
         background-blend-mode: overlay;
-        opacity: 80%;
         margin: 30px;
         text-shadow: 20px;
         margin-bottom: 0px;
@@ -92,7 +91,7 @@ div::-webkit-scrollbar {
 .submit{
     display: inline-block;
     justify-items: center;
-    background-color: rgba(77, 23, 6, 0.993);
+    background-color: rgb(77, 23, 6);
     justify-content: center;
     align-items: center;
     color: aliceblue;
