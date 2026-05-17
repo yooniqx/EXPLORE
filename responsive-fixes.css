@@ -2,6 +2,34 @@
    COMPREHENSIVE RESPONSIVE DESIGN FIXES
    For EXPLORE Travel Website
    ======================================== */
+/* ========================================
+   GLOBAL SCROLLBAR HIDING
+   Hide scrollbar while keeping scroll functionality
+   ======================================== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: none;
+}
+
+/* IE and Edge Legacy */
+body {
+    -ms-overflow-style: none;
+}
+
+/* Ensure scrolling still works */
+html, body {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 
 /* Mobile-First Responsive Breakpoints */
 /* Small devices (phones, 576px and down) */
@@ -365,6 +393,19 @@ img {
 
 /* Dark mode support (if system prefers dark) */
 @media (prefers-color-scheme: dark) {
+    
+    /* GitHub Repository Button - Mobile */
+    .github-repo-btn {
+        padding: 14px 24px;
+        font-size: 16px;
+        width: 90%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .github-repo-btn i {
+        font-size: 20px;
+    }
     /* Already dark themed, but ensure consistency */
     .destination-card,
     .contact-card {

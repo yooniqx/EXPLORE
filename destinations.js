@@ -110,9 +110,8 @@ function createFallbackCard(searchTerm) {
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
     
-    // Create Wikipedia search URL
-    const wikiSearchUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(searchTerm.replace(/ /g, '_'))}`;
-    const wikiGeneralSearch = `https://en.wikipedia.org/w/index.php?search=${encodeURIComponent(searchTerm)}`;
+    // Create Wikipedia Special:Search URL (as requested)
+    const wikiSearchUrl = `https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(searchTerm)}`;
     
     card.innerHTML = `
         <div class="fallback-icon">
@@ -122,22 +121,19 @@ function createFallbackCard(searchTerm) {
             <div class="card-header">
                 <div class="card-title">
                     <h3>${capitalizedTerm}</h3>
-                    <p><i class="fa fa-search"></i> Worldwide Search Result</p>
+                    <p><i class="fa fa-search"></i> Not in Database</p>
                 </div>
                 <span class="category-badge fallback-badge">External</span>
             </div>
             <p class="card-description">
-                <strong>"${capitalizedTerm}"</strong> is not in our curated destinations database yet, but you can explore it on Wikipedia for comprehensive information about this location.
+                This destination is not currently in our local database. You can search for <strong>"${capitalizedTerm}"</strong> on Wikipedia for comprehensive information.
             </p>
             <div class="fallback-info">
                 <p><i class="fa fa-info-circle"></i> This could be a city, town, landmark, region, or tourist spot anywhere in the world.</p>
             </div>
             <div class="card-footer fallback-footer">
                 <a href="${wikiSearchUrl}" target="_blank" rel="noopener noreferrer" class="learn-more-btn primary-btn">
-                    <i class="fa fa-wikipedia-w"></i> View on Wikipedia
-                </a>
-                <a href="${wikiGeneralSearch}" target="_blank" rel="noopener noreferrer" class="learn-more-btn secondary-btn">
-                    <i class="fa fa-search"></i> Search Wikipedia
+                    <i class="fa fa-wikipedia-w"></i> Search on Wikipedia
                 </a>
             </div>
         </div>
@@ -146,27 +142,99 @@ function createFallbackCard(searchTerm) {
     return card;
 }
 
-// Filter destinations
+// Filter destinations with word-boundary matching and ranking
 function filterDestinations() {
     const searchTerm = document.getElementById('destinationSearch').value.toLowerCase().trim();
     const continent = document.getElementById('continentFilter').value;
     const category = document.getElementById('categoryFilter').value;
     
-    filteredDestinations = allDestinations.filter(dest => {
-        const matchesSearch = searchTerm === '' ||
-            dest.name.toLowerCase().includes(searchTerm) ||
-            dest.country.toLowerCase().includes(searchTerm) ||
-            dest.description.toLowerCase().includes(searchTerm) ||
-            dest.highlights.some(h => h.toLowerCase().includes(searchTerm));
+    // If no search term and no filters, show all
+    if (searchTerm === '' && continent === 'all' && category === 'all') {
+        filteredDestinations = [...allDestinations];
+        displayDestinations(filteredDestinations, '');
+        return;
+    }
+    
+    // Helper function to check word boundary match
+    function wordBoundaryMatch(text, search) {
+        // Create regex with word boundaries
+        const regex = new RegExp('\\b' + search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+        return regex.test(text);
+    }
+    
+    // Filter with ranking system
+    const matches = allDestinations.map(dest => {
+        let score = 0;
+        let matchesSearch = true;
         
+        if (searchTerm !== '') {
+            const name = dest.name.toLowerCase();
+            const country = dest.country.toLowerCase();
+            const description = dest.description.toLowerCase();
+            const highlights = dest.highlights.map(h => h.toLowerCase()).join(' ');
+            const continent = dest.continent.toLowerCase();
+            
+            // Exact match (highest priority)
+            if (name === searchTerm || country === searchTerm) {
+                score = 1000;
+            }
+            // Name starts with search term (word boundary)
+            else if (name.startsWith(searchTerm)) {
+                score = 500;
+            }
+            // Country starts with search term (word boundary)
+            else if (country.startsWith(searchTerm)) {
+                score = 400;
+            }
+            // Word boundary match in name
+            else if (wordBoundaryMatch(name, searchTerm)) {
+                score = 350;
+            }
+            // Word boundary match in country
+            else if (wordBoundaryMatch(country, searchTerm)) {
+                score = 250;
+            }
+            // Word boundary match in continent
+            else if (wordBoundaryMatch(continent, searchTerm)) {
+                score = 150;
+            }
+            // Word boundary match in highlights
+            else if (wordBoundaryMatch(highlights, searchTerm)) {
+                score = 100;
+            }
+            // Word boundary match in description
+            else if (wordBoundaryMatch(description, searchTerm)) {
+                score = 50;
+            }
+            // No match
+            else {
+                matchesSearch = false;
+            }
+        }
+        
+        // Apply continent filter
         const matchesContinent = continent === 'all' || dest.continent === continent;
+        
+        // Apply category filter
         const matchesCategory = category === 'all' || dest.category === category;
         
-        return matchesSearch && matchesContinent && matchesCategory;
+        return {
+            destination: dest,
+            score: score,
+            matches: matchesSearch && matchesContinent && matchesCategory
+        };
     });
     
-    // Pass search term for fallback card generation
-    displayDestinations(filteredDestinations, searchTerm);
+    // Filter and sort by score
+    filteredDestinations = matches
+        .filter(m => m.matches)
+        .sort((a, b) => b.score - a.score)
+        .map(m => m.destination);
+    
+    // Only show fallback if search term exists and no matches found
+    const shouldShowFallback = searchTerm !== '' && filteredDestinations.length === 0;
+    
+    displayDestinations(filteredDestinations, shouldShowFallback ? searchTerm : '');
 }
 
 // Reset filters
